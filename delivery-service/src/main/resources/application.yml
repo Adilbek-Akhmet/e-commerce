@@ -1,0 +1,26 @@
+spring:
+  application:
+    name: delivery-service
+
+  data:
+#    mongodb:
+#      uri: mongodb+srv://adilbek:Ac!53M-6PSKGACn@cluster0.o1epl.mongodb.net/e-commerce?retryWrites=true&w=majority
+    mongodb:
+      uri: mongodb://root:example@localhost:27017/reactive-product?authSource=admin
+
+
+  rabbitmq:
+    addresses: ${RABBIT_URL:localhost:5672}
+
+
+server:
+  port: 8888
+
+rabbitmq:
+  exchanges:
+    internal: internal.exchange
+  queues:
+    delivery: delivery.queue
+  routing-keys:
+    internal-delivery: internal.delivery.routing-key
+
